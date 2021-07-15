@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Shower Presentation Engine</title>
+    <title>Локальный деплой проектов в условиях заказной разработки | Иван Поддубный | Вебпрактик</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="shower/themes/ribbon/styles/styles.css">
@@ -136,7 +136,7 @@
 </section>
 
 <section class="slide ">
-    <h2>Упираемся в windows ☠️ <img class="vatb" width="50" src="images/windows.png" alt=""></h2>
+    <h2>Упираемся в windows ☠ <img class="vatb" width="50" src="images/windows.png" alt=""></h2>
     <ul>
         <li class="next">Проекты растут. Большие базы, ntfs не вывозит</li>
         <li class="next">Все возможные тюнинги FS и серверов не помогают,<br>на винде просадка попугаев в разы</li>
@@ -270,14 +270,24 @@
     <div class="logo"></div>
 </section>
 
-<section class="slide ">
-    <h2>DNS</h2>
+<section class="slide">
+    <h2>Дмены</h2>
     <p>nip.io, xip.io</p>
 
     <pre><code><mark>pochtabank.ru</mark>.192.168.2.23.<mark>nip.io</mark></code></pre>
     <pre><code><mark>letovo.ru</mark>.192.168.2.23.<mark>nip.io</mark></code></pre>
 
     <p>Классно работает по сети + VPN!</p>
+    <div class="logo"></div>
+</section>
+
+<section class="slide ">
+    <h2>DNS</h2>
+
+    <ul>
+        <li>доступ к контейнерам по домену *.docker</li>
+        <li>частый пример: projectName_db.docker</li>
+    </ul>
 
     <p><img src="images/dockerhub.png" class="vatb" width="200" alt=""> <a href="https://hub.docker.com/r/jderusse/dns-gen">jderusse/dns-gen</a></p>
     <div class="logo"></div>
@@ -462,6 +472,30 @@
         <li>Не хочу куб, хочу на ноутбуке только спашечку пилить)</li>
         <li class="next">Сделали на SPA приложениях proxy, которое проксирует сразу на release-candidat или work площадку все запросы</li>
         <li class="next">Защитили ключами, на проде не прокатит</li>
+    </ul>
+    <div class="logo"></div>
+</section>
+
+<section class="slide ">
+    <h2>Стоит ли дать windows 2 шанс? Мое ИМХО</h2>
+    <ul>
+        <li>WSL1 - крутая идея</li>
+        <li>WSL2 - даунгрейд, практически не отличается от виртуалки, со всеми вытекающими минусами</li>
+        <li>Docker работает не стабильно. Новинки вроде krio, containerd - или не поддерживаются или с багами</li>
+        <li>Как следствие kuber и все его подмножества тоже не стабильны</li>
+        <li>Опять приходим к тому что занимаемся борьбой с системой вместо работы</li>
+        <li>Подойдет для особо ярых энтузиастов с кучей свободного времени и желания =)</li>
+    </ul>
+    <div class="logo"></div>
+</section>
+
+<section class="slide ">
+    <h2>Windows - рабочий вариант</h2>
+    <ul>
+        <li>Выделяем по виртуалке каждому разрабу в облаке (включена только во время работы)</li>
+        <li>На ней он все разворачивает.</li>
+        <li>Минусы работы синхронизации через phpstorm и производительности (виртуалки обычно более слабые процы)</li>
+        <li>Если вы большие - может бить по карману)</li>
     </ul>
     <div class="logo"></div>
 </section>
