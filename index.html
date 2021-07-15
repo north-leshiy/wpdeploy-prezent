@@ -257,14 +257,21 @@
         <li>Каждый проект — набор контейнеров: не нарушаем best practices</li>
         <li>Управляем через docker-compose</li>
     </ul>
+    <h3>Набор контейнеров типового проекта</h3>
+    <ul>
+        <li>php</li>
+        <li>db</li>
+        <li>deploy</li>
+    </ul>
     <div class="logo"></div>
 </section>
 
 <section class="slide">
     <h2>Что делать с 80 портом?</h2>
-    <p>Reverse proxy! </p>
+    <p>Reverse proxy! Делаем набор обслуживающих общих контейнеров</p>
     <p><img src="images/nginx.png" class="vatb" height="50" alt="nginx"> &nbsp; vs &nbsp; <img src="images/traefik.png" class="vatb" height="50" alt="Traefik"></p>
 
+    <p>Автоматически подхватывает контейнеры и настраивает reverse proxy</p>
     <p><img src="images/dockerhub.png" class="vatb" width="200" alt=""> <a href="https://hub.docker.com/r/jwilder/nginx-proxy">jwilder/nginx-proxy</a></p>
 
     <div class="logo"></div>
@@ -363,7 +370,7 @@
     <h2>Как это выглядит для разработчика</h2>
     <ol>
         <li>Разработчик клонирует проект</li>
-        <li><code>wpdeploy env</code> - копирует</li>
+        <li><code>wpdeploy env</code> - копирует .env.example в .env</li>
         <li><code>wpdeploy up</code> - поднимает окружение</li>
     </ol>
     <div class="logo"></div>
@@ -387,7 +394,7 @@
     <h2>Получается для разворота проекта с нуля</h2>
     <ol>
         <li>Разработчик клонирует проект</li>
-        <li><code>wpdeploy env</code> - копирует</li>
+        <li><code>wpdeploy env</code> - копирует .env.example в .env</li>
         <li><code>wpdeploy deploy</code> - скачивает ядро и базу</li>
         <li><code>wpdeploy up</code> - поднимает окружение</li>
     </ol>
@@ -451,8 +458,8 @@
         <li>
             <code>wpdeploy kuber up</code> - устанавливает в систему кубер, helm, werf, kubectl (если не было) и поднимает проект
         </li>
-        <li><code>wpdeploy kuber down</code> - опускает проект и вырубает кубер</li>
         <li><code>wpdeploy kuber delete</code> - вырубает релиз helm</li>
+        <li><code>wpdeploy kuber down</code> - опускает проект и вырубает кубер</li>
     </ul>
     <div class="logo"></div>
 </section>
