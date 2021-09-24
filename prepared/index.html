@@ -7,6 +7,14 @@
     <link rel="stylesheet" href="shower/themes/ribbon/styles/styles.css">
     <link rel="stylesheet" href="font/stylesheet.css">
     <link rel="stylesheet" href="style.css">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/icon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icon/favicon-16x16.png">
+    <link rel="manifest" href="/icon/site.webmanifest">
+    <link rel="mask-icon" href="/icon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
 </head>
 <body class="shower list">
 
@@ -49,6 +57,17 @@
 		#cover p a {
 			color: white;
 		}
+
+		.slide li {
+			padding-left: 20px;
+			line-height: 130%;
+			margin-bottom: 20px;
+		}
+
+		.slide li::before {
+			position: absolute;
+		}
+
     </style>
     <div class="logo"></div>
 </section>
@@ -127,7 +146,7 @@
 </section>
 
 <section class="slide ">
-    <h2>Давайте перенесем разработку на локальные машины</h2>
+    <h2>Давайте перенесем разработку<br> на локальные машины 🖥️</h2>
     <ul>
         <li>OpenServer</li>
         <li class="next">живем некоторое время...</li>
@@ -180,7 +199,7 @@
     <h2 style="margin-bottom: 0">Девопсы в восторге</h2>
     <p>стоп гемору с виндой и можно развиваться в linux</p>
     <p><img width="500" src="images/linux-happy.png" alt=""></p>
-<!--    <li class="next">Отдел в это время примерно человек 20</li>-->
+    <!--    <li class="next">Отдел в это время примерно человек 20</li>-->
     <div class="logo"></div>
 </section>
 
@@ -252,26 +271,51 @@
 </section>
 
 <section class="slide ">
-    <h2>Проработка деталей: </h2>
-    <ul>
-        <li>Каждый проект — набор контейнеров: не нарушаем best practices</li>
-        <li>Управляем через docker-compose</li>
-    </ul>
+    <h2 class="shout">Проработка деталей</h2>
+</section>
+
+<section class="slide ">
+    <h2>Набор контейнеров типового проекта</h2>
+
+    <table>
+        <tr>
+            <td valign="top">
+                <ul>
+                    <li>Каждый проект — набор контейнеров: не нарушаем best practices</li>
+                    <li>Управляем через docker-compose</li>
+                </ul>
+                <img width="200" src="./images/docker-compose.png" alt="docker-compose logo">
+            </td>
+            <td><img width="350" src="./images/containers-basic.png" alt="стартовый набор контейнеров"></td>
+        </tr>
+    </table>
     <div class="logo"></div>
 </section>
 
 <section class="slide">
     <h2>Что делать с 80 портом?</h2>
-    <p>Reverse proxy! </p>
-    <p><img src="images/nginx.png" class="vatb" height="50" alt="nginx"> &nbsp; vs &nbsp; <img src="images/traefik.png" class="vatb" height="50" alt="Traefik"></p>
+    <img width="800" src="./images/80port.png" alt="">
+</section>
 
-    <p><img src="images/dockerhub.png" class="vatb" width="200" alt=""> <a href="https://hub.docker.com/r/jwilder/nginx-proxy">jwilder/nginx-proxy</a></p>
+<section class="slide">
+    <h2>Reverse proxy => shared stack</h2>
+    <table>
+        <tr>
+            <td valign="top" style="padding-top: 40px;">
+                <img src="images/nginx.png" class="vatb" height="50" alt="nginx"> &nbsp; vs &nbsp; <img src="images/traefik.png" class="vatb" height="50" alt="Traefik">
 
+                <p style="line-height: 120%; color: gray">Автоматически подхватывает контейнеры и настраивает reverse proxy</p>
+                <p><img src="images/dockerhub.png" class="vatb" width="200" alt=""> <a href="https://hub.docker.com/r/jwilder/nginx-proxy">jwilder/nginx-proxy</a></p>
+            </td>
+
+            <td><img style="margin-top: -50px;" src="images/reverse-proxy.png" height="400" alt="nginx"></td>
+        </tr>
+    </table>
     <div class="logo"></div>
 </section>
 
 <section class="slide">
-    <h2>Дмены</h2>
+    <h2>Домены</h2>
     <p>nip.io, xip.io</p>
 
     <pre><code><mark>pochtabank.ru</mark>.192.168.2.23.<mark>nip.io</mark></code></pre>
@@ -284,25 +328,46 @@
 <section class="slide ">
     <h2>DNS</h2>
 
-    <ul>
-        <li>доступ к контейнерам по домену *.docker</li>
-        <li>частый пример: projectName_db.docker</li>
-    </ul>
+    <table>
+        <tr>
+            <td valign="top">
+                <ul>
+                    <li>доступ к контейнерам по домену <b>*.docker</b></li>
+                    <li class="next">частный пример: <b>projectName_db.<span style="color: gray">docker</span></b></li>
+                </ul>
 
-    <p><img src="images/dockerhub.png" class="vatb" width="200" alt=""> <a href="https://hub.docker.com/r/jderusse/dns-gen">jderusse/dns-gen</a></p>
+                <p class="next"><img src="images/dockerhub.png" class="vatb" width="200" alt=""> <a href="https://hub.docker.com/r/jderusse/dns-gen">jderusse/dns-gen</a></p>
+            </td>
+            <td>
+                <img style="margin-top: -70px" width="500" src="images/local-services_dns.png" alt="Добавили DNS к стеку">
+            </td>
+        </tr>
+    </table>
+
     <div class="logo"></div>
 </section>
 
 
 <section class="slide ">
     <h2>Отлов почты: Mailhog/Mailcatcher</h2>
-    <ul>
-        <li>Отлавливает почту</li>
-        <li>Предоставляет интерфейс для просмотра</li>
-        <li>Порт прокидываем внутрь стеков проектов</li>
-    </ul>
 
-    <p><img src="images/dockerhub.png" class="vatb" width="200" alt=""> <a href="https://hub.docker.com/r/mailhog/mailhog">mailhog/mailhog</a></p>
+    <table>
+        <tr>
+            <td valign="top">
+
+                <ul>
+                    <li>Отлавливает почту</li>
+                    <li>Предоставляет интерфейс для просмотра</li>
+                    <li>Порт прокидываем внутрь стеков проектов</li>
+                </ul>
+
+                <p><img src="images/dockerhub.png" class="vatb" width="200" alt=""> <a href="https://hub.docker.com/r/mailhog/mailhog">mailhog/mailhog</a></p>
+            </td>
+            <td>
+                <img style="margin-top: -50px" width="500" src="images/local-services_mailcatcher.png" alt="Добавили DNS к стеку">
+            </td>
+        </tr>
+    </table>
     <div class="logo"></div>
 </section>
 
@@ -330,7 +395,7 @@
 </section>
 
 <section class="slide clear">
-    <img src="https://w6p.ru/MDc4OWM.png" class="cover" alt="">
+    <img src="images/local-services_final.png" class="cover" alt="">
     <div class="logo"></div>
 </section>
 
@@ -344,9 +409,23 @@
     <div class="logo"></div>
 </section>
 
-<section class="slide ">
-    <img src="https://w6p.ru/ZjYwMDA.png" class="cover" alt="">
-    <div class="logo"></div>
+<section class="slide clear">
+    <pre style="font-size: 21px; margin: -30px 10px 10px 30px;">
+        <code>...</code>
+        <code>## Services versions ##</code>
+        <code>PHP_VERSION=<mark>registry.gitlab.com/webpractik/php-images/8.0-apache</mark></code>
+        <code>MYSQL_VERSION=<mark>alterway/mysql:8.0</mark></code>
+        <code>   </code>
+        <code>## MYSQL ##</code>
+        <code>LOCALTIME=Europe/Moscow</code>
+        <code>   </code>
+        <code>## Bitrix php specific settings</code>
+        <code>PHP__date.timezone=Europe/Moscow</code>
+        <code>PHP__memory_limit=128M</code>
+        <code>PHP__display_errors=On</code>
+        <code>PHP__upload_max_filesize=50M</code>
+        <code>...</code>
+    </pre>
 </section>
 
 <section class="slide ">
@@ -363,7 +442,7 @@
     <h2>Как это выглядит для разработчика</h2>
     <ol>
         <li>Разработчик клонирует проект</li>
-        <li><code>wpdeploy env</code> - копирует</li>
+        <li><code>wpdeploy env</code> - копирует .env.example в .env</li>
         <li><code>wpdeploy up</code> - поднимает окружение</li>
     </ol>
     <div class="logo"></div>
@@ -387,7 +466,7 @@
     <h2>Получается для разворота проекта с нуля</h2>
     <ol>
         <li>Разработчик клонирует проект</li>
-        <li><code>wpdeploy env</code> - копирует</li>
+        <li><code>wpdeploy env</code> - копирует .env.example в .env</li>
         <li><code>wpdeploy deploy</code> - скачивает ядро и базу</li>
         <li><code>wpdeploy up</code> - поднимает окружение</li>
     </ol>
@@ -399,14 +478,26 @@
     <div class="logo"></div>
 </section>
 
+<section class="slide clear">
+    <img src="images/vendor_init.png" class="cover" alt="">
+    <div class="logo"></div>
+</section>
+
 <section class="slide ">
     <h2>Тоже предусмотрели</h2>
-    <code>wpdeploy vendor_init</code> — запускает composer/bower/npm/yarn install в зависимости от проекта.
 
-    <br>
-    <br>
+    <table>
+        <tr>
+            <td valign="top" style="line-height: 130%;">
+                <p><code>wpdeploy vendor_init</code> — запускает composer/npm/yarn/webpack в зависимости от проекта.</p>
 
-    <p>Причем запускает его в отдельном контейнере с ПО нужной версии, а не на хостовой машине, что избавляет от необходимости с этим париться.</p>
+                <p>Причем запускает его в отдельном контейнере с ПО нужной версии, а не на хостовой машине, что избавляет от необходимости с этим париться.</p>
+            </td>
+            <td valign="top">
+                <img width="550" src="images/vendor_init.png" alt="">
+            </td>
+        </tr>
+    </table>
     <div class="logo"></div>
 </section>
 
@@ -451,8 +542,8 @@
         <li>
             <code>wpdeploy kuber up</code> - устанавливает в систему кубер, helm, werf, kubectl (если не было) и поднимает проект
         </li>
-        <li><code>wpdeploy kuber down</code> - опускает проект и вырубает кубер</li>
         <li><code>wpdeploy kuber delete</code> - вырубает релиз helm</li>
+        <li><code>wpdeploy kuber down</code> - опускает проект и вырубает кубер</li>
     </ul>
     <div class="logo"></div>
 </section>
